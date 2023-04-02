@@ -2,7 +2,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 //Задача 1*
-//    По введённым координатам точки определите, в какой координатной четверти (или на какой оси) она находится.
+//    По введённым координатам точки определите, в какой координатной четверти
+//    (или на какой оси) она находится.
 //
 //    Четверти нумеруются следующим образом:
 //
@@ -12,6 +13,13 @@ import java.io.InputStreamReader;
 //    ------------> x
 //    III |  IV
 //        |
+
+//Задача 2** (не обязательно)
+//Получите от пользователя радиус окружности.
+//
+//По введённым координатам точки определите, попадает ли она внутрь, на границу или вне окружности
+// с указанным радиусом и центром в точке O (0, 0).
+
 public class Main {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,6 +28,9 @@ public class Main {
     System.out.println(quarter);
   }
 
+  public static String checkRound(Point point) {
+    return "0";
+  }
   public static String checkQuarter(Point point) {
     int x = point.getX();
     int y = point.getY();
@@ -40,4 +51,6 @@ public class Main {
       return "Point on axis 'X'";
     }
   }
+
+
 }

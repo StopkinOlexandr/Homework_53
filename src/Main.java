@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 //Задача 1*
 //    По введённым координатам точки определите, в какой координатной четверти
 //    (или на какой оси) она находится.
@@ -24,13 +25,26 @@ public class Main {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     Point point = Point.read(br);
+    System.out.print("Input radius: ");
+    int radius = Integer.parseInt(br.readLine());
     String quarter = checkQuarter(point);
-    System.out.println(quarter);
+    System.out.println("Point is in the Quarter: " + quarter);
+    String inCircle = checkInRound(point, radius);
+    System.out.println(inCircle);
   }
 
-  public static String checkRound(Point point) {
-    return "0";
+  public static String checkInRound(Point point, int radius) {
+    int x = point.getX();
+    int y = point.getY();
+    int x2PlusY2 = x * x + y * y;
+    if(x2PlusY2 < radius * radius) {
+      return "Point ley in the circle";
+    } else if (x2PlusY2 > radius * radius) {
+      return "Point ley outside of the circle";
+    }
+    return "Point on the circle";
   }
+
   public static String checkQuarter(Point point) {
     int x = point.getX();
     int y = point.getY();
